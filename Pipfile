@@ -10,6 +10,8 @@ scipy = "*"
 python-dotenv = "*"
 pillow = "*"
 django-compressor = "*"
+django-crispy-forms = "*"
+crispy-tailwind = "*"
 
 [dev-packages]
 
