@@ -9,6 +9,7 @@ numpy = "*"
 scipy = "*"
 python-dotenv = "*"
 pillow = "*"
+django-compressor = "*"
 
 [dev-packages]
 
