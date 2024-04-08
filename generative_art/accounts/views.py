@@ -14,7 +14,7 @@ from django.contrib.auth.models import User
 class RegisterView(View):
     def get(self, request):
         if request.user.is_authenticated:
-            return HttpResponsePermanentRedirect(reverse("core:art"))
+            return HttpResponsePermanentRedirect(reverse("core:main"))
         
         form = RegisterForm()
         context = {"form": form}
@@ -31,7 +31,7 @@ class RegisterView(View):
     @staticmethod
     def success(request):
         if request.user.is_authenticated:
-            return HttpResponsePermanentRedirect(reverse("core:art"))
+            return HttpResponsePermanentRedirect(reverse("core:main"))
         
         return render(request, "accounts/registration_successful.html", {})
 
@@ -39,7 +39,7 @@ class LoginView(View):
 
     def get(self, request):
         if request.user.is_authenticated:
-            return HttpResponsePermanentRedirect(reverse("core:art"))
+            return HttpResponsePermanentRedirect(reverse("core:main"))
 
         form = LoginForm()
         return render(request, "accounts/login.html", {"form": form})
@@ -49,7 +49,7 @@ class LoginView(View):
         if form.is_valid():
             user  = User.objects.get(username=request.POST["username"])
             login(request, user)
-            return HttpResponsePermanentRedirect(reverse("core:art"))
+            return HttpResponsePermanentRedirect(reverse("core:main"))
 
         return render(request, "accounts/login.html", {"form": form})
     
