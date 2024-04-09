@@ -5,6 +5,5 @@ from .models import Art
 class ArtForm(forms.ModelForm):
     class Meta:
         model = Art
-        exclude = ['user']
-        fields = "__all__"
+        exclude = ["user", "image"]
 
