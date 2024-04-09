@@ -21,13 +21,15 @@ class ArtCreateView(LoginRequiredMixin, View):
             resolution_height = form.cleaned_data.get('resolution_height')
             no_of_circles = form.cleaned_data.get('no_of_circles')
             max_color_cycle = form.cleaned_data.get('max_color_cycle')
-
+            parameters = [form.cleaned_data.get(f'parameter_{i}') for i in range(1, 6)]
+            
             image_path = Pattern.create(
                 user_id=request.user.id,
                 title=title,
                 image_size=(resolution_width, resolution_height),
                 num_circles=no_of_circles,
-                max_color_cycle=max_color_cycle
+                max_color_cycle=max_color_cycle,
+                parameters=parameters
             )
 
             form.instance.image = image_path

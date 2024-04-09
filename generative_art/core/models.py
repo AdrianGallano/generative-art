@@ -8,6 +8,11 @@ class Art(models.Model):
     resolution_height = models.IntegerField(default=500)
     no_of_circles = models.IntegerField(default=100000)
     max_color_cycle = models.IntegerField(default=100)
+    parameter_1 = models.IntegerField(default=14)
+    parameter_2 = models.IntegerField(default=14)
+    parameter_3 = models.IntegerField(default=20)
+    parameter_4 = models.IntegerField(default=24)
+    parameter_5 = models.IntegerField(default=54)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     
     def __str__(self):

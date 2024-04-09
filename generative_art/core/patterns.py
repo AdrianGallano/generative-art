@@ -9,7 +9,7 @@ import os
 
 class Pattern:
     @staticmethod
-    def generate_circles(num_circles):
+    def generate_circles(num_circles, pm1, pm2, pm3, pm4, pm5):
         """Generates coordinates and radii for a given number of circles.
 
         Args:
@@ -23,9 +23,9 @@ class Pattern:
                     each circle.
         """
         theta = np.linspace(0, 2 * np.pi, num_circles)
-        x = np.cos(14 * theta) * (1 - 0.75 * np.cos(20 * theta) ** 2)
-        y = np.sin(14 * theta) * (1 - 0.75 * np.cos(24 * theta) ** 2)
-        radius = 1 / 200 + 1 / 10 * np.sin(54 * theta) ** 6
+        x = np.cos(pm1 * theta) * (1 - 0.75 * np.cos(pm3 * theta) ** 2)
+        y = np.sin(pm2 * theta) * (1 - 0.75 * np.cos(pm4 * theta) ** 2)
+        radius = 1 / 200 + 1 / 10 * np.sin(pm5 * theta) ** 6
 
         return np.stack([x, y], axis=1), radius
 
@@ -65,8 +65,10 @@ class Pattern:
         image_size=(500, 500),
         num_circles=2000000,
         max_color_cycle=1000,
+        parameters = [14, 14, 20, 24, 54]
     ):
-        centers, radii = Pattern.generate_circles(num_circles)
+        pm1, pm2, pm3, pm4, pm5 = parameters
+        centers, radii = Pattern.generate_circles(num_circles, pm1, pm2, pm3, pm4, pm5)
         image = Pattern.draw_circles(centers, radii, image_size, max_color_cycle)
 
         if user_id is not None:
