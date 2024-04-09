@@ -16,3 +16,6 @@ cd generative_art
 python manage.py migrate
 python manage.py runserver
 ```
+
+## Sample pattern
+<img src="generative_art/static/assets/sample.png" alt="sample" />
