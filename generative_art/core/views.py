@@ -34,7 +34,7 @@ class ArtCreateView(LoginRequiredMixin, View):
 
             form.instance.image = image_path
             form.save()
-            return HttpResponsePermanentRedirect(reverse_lazy("core:main") + f'?image_path={image_path}')
+            return HttpResponsePermanentRedirect(reverse_lazy("core:main") + f'?image_path=media/{image_path}')
         else:
             return render(request, 'art/main.html', {'form': form})
 

@@ -74,7 +74,7 @@ class Pattern:
         if user_id is not None:
             title = str(user_id) + "_" + title
 
-        relative_image_path = os.path.join("media", "images", f"{title}.png")
+        relative_image_path = os.path.join("images", f"{title}.png")
         image_path = os.path.join(settings.MEDIA_ROOT, "images", f"{title}.png")
 
         # Save the image

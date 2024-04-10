@@ -12,6 +12,7 @@ pillow = "*"
 django-compressor = "*"
 django-crispy-forms = "*"
 crispy-tailwind = "*"
+mysqlclient = "*"
 
 [dev-packages]
 
