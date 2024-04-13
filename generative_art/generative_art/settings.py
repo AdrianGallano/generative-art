@@ -25,7 +25,7 @@ load_dotenv()
 SECRET_KEY = os.getenv("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ["127.0.0.1", ".vercel.app"]
 
@@ -130,7 +130,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 STATIC_ROOT = os.path.join(BASE_DIR, "static") 
-STATIC_URL = "/static/" 
+STATIC_URL = "static/" 
 
 COMPRESS_ROOT = os.path.join(BASE_DIR, "static")
 COMPRESS_ENABLED = True
